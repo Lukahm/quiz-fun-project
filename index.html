@@ -1,0 +1,275 @@
+<!--Haomin liu,12109377,assignment 2,quizfun-->
+<!DOCTYPE html>
+<html lang="en">
+
+<!--header-->
+<div class = "header-region">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Jquery    -->
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+    <title>Quiz Fun</title>
+
+    <!-- Preload Custom Font -->
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script>
+        WebFont.load({
+          custom: {
+            families: ['start'],
+            urls : ['css/Start with Today.ttf']
+          }
+        });
+    </script>
+</head>
+</div>
+
+<!--body-->
+<body id="index-page-top">
+   
+<!--  canvas-container   -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10 col-lg-10">
+        <canvas id='logo' width='750' height = '150'>Quiz Fun</canvas>
+        </div>
+    </div>
+</div>
+  
+  
+<!-- Navigation bar -->  
+<div class="container">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#brand">
+               <img class="img-responsive" alt="brand" src="css/brain.png">
+            </a>
+           
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse js-navbar" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav js-nav guest-mode-nav">
+            <li class="active"><a href="#Home" class="home btn-home"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+            <li class="active"><a href="#HomeLogin" class="homeLogin btn-homeLogin"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+            <li><a href="#Signup" class="signup btn-signup" ><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+            <li><a href="#Login" class="login btn-login" ><span class="glyphicon glyphicon-log-in"></span>Log In</a></li>
+            <li><a href="#member" class="members btn-members" ><span class="glyphicon glyphicon-globe"></span>Members</a></li>
+            <li><a href="#quiz" class="quiz btn-quiz" ><span class="glyphicon glyphicon-tasks"></span>Quiz</a></li>
+            <li><a href="#profile" class="profile btn-profile" ><span class="glyphicon glyphicon-file"></span>Edit Profile</a></li>
+            <li><a href="#unsub" class="unsub btn-unsub" ><span class="glyphicon glyphicon-remove-sign"></span>Unsubscribe</a></li>
+            <li><a href="#logout" class="logout btn-logout" ><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+
+          </ul>
+          <div class="js-userState"></div>
+        </div>
+      </div>
+    </nav>
+</div>
+
+<!-- alert box-->
+<div class="container">
+  <div class="alert alert-dismissible js-alert-box">
+      <span class="alert-span"></span><a href="#" class="alert-link"></a>.
+  </div>
+</div>
+
+
+<!-- main page alert box -->
+<div class="container js-mainpage-alert">
+    <div class="alert alert-dismissible alert-warning">
+        <strong>=> You must be logged in to view this page.</strong>
+    </div>
+</div>
+
+
+<div class="container js-mainpage-info">
+    <div class="jumbotron">
+          <p>Welcome to QuizTime, plsase sign up and/or log in to join in ( You can also press home button to preview the quiz ).</p>
+    </div>
+</div>
+
+
+
+<!--home-->
+<div class="container js-subpage-container js-home">
+    <div class="panel panel-primary">
+    <div class="panel-heading">
+    <h3 class="panel-title">Internet Programming Quiz</h3>
+    </div>
+    <div class="panel-body">
+    <form class="js-profile-form-horizontal form-horizontal js-question-container" id="quizForm" ></form>
+    </div>
+    </div>
+</div>
+
+<!--homeLogin-->
+<div class="container js-subpage-container js-homeLogin">
+   
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Your Profile</h3>
+      </div>
+      <div class="panel-body js-homeLogin-panel-body">
+      </div>
+        <div class= "panel-body js-homeLogin-panel-score">
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--signup form-->
+<div class="container js-subpage-container js-signup">           
+    <form class="js-signup-form-horizontal form-horizontal"  action="signup.php" id="signupForm" >
+    <div class="well bs-component">    
+        <legend>Signup Form</legend>
+        
+        <div class="alert alert-dismissible alert-info signup-alert-info">
+        <strong>Please enter your details to sign up.</strong>
+        </div>
+        
+        <div class="form-group">
+          <label for="username" class="col-lg-2 control-label">Username</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control js-sigup-inputUsername" maxlength="16" name="username" placeholder="Username">
+            <span class="text-success js-userAvailable"></span>
+            <span class="text-danger js-userUnavailable"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password" class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-10">
+            <input type="password" class="form-control" maxlength="16" name="password" placeholder="Password">
+            </div>  
+        </div>
+        <button type="submit" data-loading-text="Loading..." class="btn btn-primary col-lg-offset-2">Submit</button>       
+    </div>
+    </form>
+</div>  
+  
+  
+<!--login form  -->
+<div class="container js-subpage-container js-login">           
+    <form class="js-login-form-horizontal form-horizontal"  action="login.php" id="loginForm" >
+    <div class="well bs-component">    
+        <legend>Login Form</legend>
+        
+        <div class="alert alert-dismissible alert-info login-alert-info">
+        Please enter your details to login
+        </div>
+        
+        <div class="form-group">
+          <label for="username" class="col-lg-2 control-label">Username</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" maxlength="16" name="username" placeholder="Username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password" class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-10">
+            <input type="password" class="form-control" maxlength="16" name="password" placeholder="Password">
+            </div>  
+        </div>
+        <button type="submit" data-loading-text="Loading..." class="btn btn-primary col-lg-offset-2">Login</button>       
+    </div>
+    </form>
+</div>  
+    
+    
+<!--edit profile-->
+<div class="container js-subpage-container js-edit-profile">           
+<form class="js-profile-form-horizontal form-horizontal" id="profileForm" action="profile.php">
+    <div class="well bs-component">
+    <legend>Your Profile</legend>
+    <div class="alert alert-dismissible alert-info signup-alert-info">
+        Please enter or edit your profile
+    </div>
+        
+    <div class="form-group">
+    <label for="textArea" class="col-lg-2 control-label">Profile Textarea</label>
+      <div class="col-lg-10">
+        <textarea class="form-control js-profile-textarea" rows="5" id="profile"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Clear</button>
+        <button type="submit" data-loading-text="Loading..." class="btn btn-primary pull-right">Submit</button>
+      </div>
+    </div>
+    </div>
+</form>
+</div>
+    
+<!--quiz    -->
+<div class="container js-subpage-container js-quiz">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+        <h3 class="panel-title">Internet Programming Quiz</h3>
+        </div>
+        <div class="panel-body">
+        <form class="js-profile-form-horizontal form-horizontal js-question-container" id="quizForm">
+        </form>
+        <div class="js-questionFeedback-container">
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- members -->
+<div class="container js-subpage-container js-members">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+        <h3 class="panel-title">Table of all members and their highest scores</h3>
+        </div>
+        
+        <div class="panel-body js-members-panel-body">
+            <table class="table table-striped table-hover js-members-table">
+                <tbody>
+                    <thead>
+                    </thead>
+                </tbody>
+            </table>
+            <p>*Table is ordered by user highest scores.</p>
+        </div>
+        
+    </div>
+</div>
+
+<!--footer-->
+<footer class="footer">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <ul class="list-unstyled">
+                   <li><i class="fa fa-phone fa-fw"></i>Contact us</li>
+                    <li><i class="fa fa-phone fa-fw"></i>Massey university, Auckland,New Zealand</li>
+                    <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:karliuhaomin@hotmail.com">karliuhaomin@hotmail.com</a>
+                    </li>
+                </ul>
+                <hr class="small">
+                <p class="text-muted">Copyright &copy;2015 QUIZFUN. All rights reserved.</p>
+            </div>
+</footer>
+
+
+<script src="js/index_script.js"></script>
+<script src='js/canvas_script.js'></script>
+<script src="js/quiz_script.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

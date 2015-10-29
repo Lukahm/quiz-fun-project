@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'start';
+    src: url('amazing.ttf')format('truetype');
+}
+
+#logo{
+	margin-top:30px;
+	margin-bottom: 10px;
+}
+
+.navbar {
+    position: relative;
+}
+
+.navbar .brand {
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar-nav a span{
+	margin-right: 5px;
+}
+
+footer {
+/*    position: fixed;*/
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.guest-mode-nav .btn-home,
+.guest-mode-nav .btn-signup,
+.guest-mode-nav .btn-login
+{
+	display:block;
+}
+
+.guest-mode-nav .btn-homeLogin,
+.guest-mode-nav .btn-unsub,
+.guest-mode-nav .btn-logout,
+.guest-mode-nav .btn-profile,
+.guest-mode-nav .btn-quiz,
+.guest-mode-nav .btn-members
+{
+	display:none;
+}
+
+.login-mode-nav .btn-home,
+.login-mode-nav .btn-signup,
+.login-mode-nav .btn-login
+{
+	display:none;
+}
+
+.login-mode-nav .btn-homeLogin,
+.login-mode-nav .btn-logout,
+.login-mode-nav .btn-unsub,
+.login-mode-nav .btn-profile,
+.login-mode-nav .btn-quiz,
+.login-mode-nav .btn-members.
+{
+	display:block;
+}
+
+.js-subpage-container
+{
+	display:none;
+}
